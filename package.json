@@ -8,6 +8,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
+    "dev": "quasar dev",
+    "deploy": "quasar build && node publish.js",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
@@ -21,7 +23,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",
     "eslint-loader": "^2.1.1",
-    "eslint-plugin-vue": "^5.0.0"
+    "eslint-plugin-vue": "^5.0.0",
+    "gh-pages": "^2.0.1"
   },
   "engines": {
     "node": ">= 8.9.0",
