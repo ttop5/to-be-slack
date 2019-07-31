@@ -1,8 +1,8 @@
 {
   "name": "to-be-slack",
   "version": "0.0.1",
-  "description": " ",
-  "productName": " ",
+  "description": "今日热榜",
+  "productName": "今日热榜",
   "cordovaId": "org.cordova.quasar.app",
   "author": "ttop5 <ttop5@qq.com>",
   "private": true,

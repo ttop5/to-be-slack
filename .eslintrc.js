@@ -32,6 +32,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-param-reassign': 'off',
+    'object-shorthand': 'off',
 
     'import/first': 'off',
     'import/named': 'error',

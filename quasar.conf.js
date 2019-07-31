@@ -44,7 +44,8 @@ module.exports = function (ctx) {
         'QList',
         'QItem',
         'QItemSection',
-        'QItemLabel'
+        'QItemLabel',
+        'QPageScroller'
       ],
 
       directives: [
@@ -53,8 +54,14 @@ module.exports = function (ctx) {
 
       // Quasar plugins
       plugins: [
-        'Notify'
-      ]
+        'Notify',
+        'LoadingBar'
+      ],
+      config: {
+        loadingBar: {
+          color: 'amber',
+        },
+      }
     },
 
     supportIE: true,

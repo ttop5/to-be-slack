@@ -6,105 +6,76 @@
           flat
           dense
           round
-          @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
+          @click="leftDrawerOpen = !leftDrawerOpen"
         >
           <q-icon name="menu" />
         </q-btn>
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toolbar-title>{{ activeLink.title }}</q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      bordered
-      content-class="bg-grey-2"
+    <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-2"
     >
-      <q-list>
-        <q-item-label header>Essential Links</q-item-label>
-        <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="school" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Docs</q-item-label>
-            <q-item-label caption>quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://github.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="code" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Github</q-item-label>
-            <q-item-label caption>github.com/quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="chat" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>chat.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://forum.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="record_voice_over" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>forum.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://twitter.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://facebook.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="public" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Facebook</q-item-label>
-            <q-item-label caption>@QuasarFramework</q-item-label>
-          </q-item-section>
+      <q-list separator class="rounded-borders text-primary q-pa-md">
+        <q-item-label header>Links</q-item-label>
+        <q-item
+          v-for="item in typeList"
+          clickable
+          v-ripple
+          exact-active-class="menu-link"
+          :key="item.id"
+          :to="`/?id=${item.id}`"
+          :active="activeLink.id === item.id"
+          @click="activeLink = item;"
+        >
+          <q-item-section>{{ item.title }}</q-item-section>
         </q-item>
       </q-list>
     </q-drawer>
 
     <q-page-container>
       <router-view />
+      <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
+        <q-btn fab icon="keyboard_arrow_up" color="primary" />
+      </q-page-scroller>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import { openURL } from 'quasar';
+import { axiosInstance } from '../boot/axios';
 
 export default {
   name: 'MyLayout',
   data() {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
+      typeList: [],
+      activeLink: {},
     };
   },
   methods: {
-    openURL,
+    getType() {
+      axiosInstance.get('/GetType').then((res) => {
+        res.data.Data.forEach((item, index) => {
+          if (item.id === '100') {
+            res.data.Data.splice(index, 2);
+          }
+        });
+        this.$set(this, 'typeList', res.data.Data);
+        this.$set(this, 'activeLink', res.data.Data[0]);
+      });
+    },
+  },
+  created() {
+    this.getType();
   },
 };
 </script>
 
-<style>
+<style lang="stylus" scoped>
+  .menu-link
+    color white
+    background $primary
 </style>
