@@ -1,26 +1,7 @@
-#   (to-be-slack)
+# 今日热榜 
 
- 
 
-## Install the dependencies
-```bash
-yarn
-```
+摸鱼愉快！
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
 
-### Lint the files
-```bash
-yarn run lint
-```
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+接口来源：[https://www.v2ex.com/t/578957#reply7](https://www.v2ex.com/t/578957#reply7)
