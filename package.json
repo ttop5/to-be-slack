@@ -1,5 +1,5 @@
 {
-  "name": "to-be-slack",
+  "name": "ToBeSlack",
   "version": "0.0.1",
   "description": "摸鱼愉快",
   "productName": "今日热榜",
@@ -9,8 +9,10 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "dev": "quasar dev",
+    "dev-pwa": "quasar dev -m pwa",
     "build": "quasar build && cp ./src/background.html ./dist/spa && cp ./manifest.json ./dist/spa",
-    "deploy": "yarn build && node publish.js",
+    "build-pwa": "quasar build -m pwa",
+    "deploy": "yarn build-pwa && node publish.js",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
