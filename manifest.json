@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "今日热榜",
+  "version": "0.0.2",
+  "description": "摸鱼愉快",
+  "icons":
+  {
+    "16": "statics/icons/icon-128x128.png",
+    "48": "statics/icons/icon-128x128.png",
+    "128": "statics/icons/icon-128x128.png"
+  },
+  "browser_action":
+  {
+    "default_icon": "statics/icons/icon-128x128.png",
+    "default_title": "今日热榜",
+    "default_popup": "background.html"
+  },
+  "homepage_url": "https://github.com/ttop5/to-be-slack"
+}

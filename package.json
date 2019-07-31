@@ -1,7 +1,7 @@
 {
   "name": "to-be-slack",
   "version": "0.0.1",
-  "description": "今日热榜",
+  "description": "摸鱼愉快",
   "productName": "今日热榜",
   "cordovaId": "org.cordova.quasar.app",
   "author": "ttop5 <ttop5@qq.com>",
@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "dev": "quasar dev",
-    "deploy": "quasar build && node publish.js",
+    "build": "quasar build && cp ./src/background.html ./dist/spa && cp ./manifest.json ./dist/spa",
+    "deploy": "yarn build && node publish.js",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
