@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.vue src",
     "dev": "quasar dev",
     "dev-pwa": "quasar dev -m pwa",
-    "build": "quasar build && cp ./src/background.html ./dist/spa && cp ./manifest.json ./dist/spa",
+    "build": "quasar build && cp src-ext/background.html ./dist/spa && cp src-ext/manifest.json ./dist/spa",
     "build-pwa": "quasar build -m pwa",
     "deploy": "yarn build-pwa && node publish.js",
     "test": "echo \"No test specified\" && exit 0"
