@@ -8,6 +8,14 @@
 
 接口来源：[https://www.v2ex.com/t/578957](https://www.v2ex.com/t/578957)
 
+## 最新更新
+
+大佬们心心念念的左侧菜单定制功能来啦！
+
+![屏幕快照 2019-08-02 18 15 12](https://user-images.githubusercontent.com/9512362/62363287-9ea36e80-b551-11e9-8e1c-06955c99093c.png)
+
+## 使用截图
+
 #### PC 端 Web：
 
 ![0](https://user-images.githubusercontent.com/9512362/62197670-dcb65c00-b3b2-11e9-8eb0-1413761b485f.png)

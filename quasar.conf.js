@@ -45,6 +45,8 @@ module.exports = function (ctx) {
         'QItem',
         'QItemSection',
         'QItemLabel',
+        'QToggle',
+        'QBtnDropdown',
         'QPageScroller'
       ],
 
