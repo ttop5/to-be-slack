@@ -106,7 +106,7 @@ module.exports = function (ctx) {
       // workboxOptions: {}, // only for NON InjectManifest
       manifest: {
         name: '今日热榜',
-        short_name: '几日热榜',
+        short_name: '今日热榜',
         description: '摸鱼愉快',
         display: 'standalone',
         orientation: 'portrait',
