@@ -93,18 +93,30 @@ export default {
     },
   },
   methods: {
+    compare(property) {
+      return (obj1, obj2) => {
+        const value1 = obj1[property];
+        const value2 = obj2[property];
+        return value2 - value1;
+      };
+    },
     getType() {
       axiosInstance.get('/GetType').then((res) => {
-        res.data.Data.forEach((item) => {
+        let data = res.data.Data;
+        // 默认全部显示
+        data.forEach((item) => {
           item.display = true;
           this.typeListObj[item.id] = item.title;
         });
-        res.data.Data.forEach((item, index) => {
+        // 去掉不需要的 tab
+        data.forEach((item, index) => {
           if (item.id === '100') {
-            res.data.Data.splice(index, 2);
+            data.splice(index, 2);
           }
         });
-        this.$set(this, 'typeList', res.data.Data);
+        // 根据热度排序
+        data = data.sort(this.compare('sort'));
+        this.$set(this, 'typeList', data);
       });
     },
     showAll() {
