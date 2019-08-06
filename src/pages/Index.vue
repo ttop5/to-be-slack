@@ -7,8 +7,10 @@
         v-ripple
         tag="a"
         target="_blank"
+        :style="`color: ${(readedLinks.includes(item.url)) ? 'gray' : 'unset'}`"
         :href="item.url"
         :key="item.index"
+        @click="clickHandler(item)"
       >
         {{ item.title }}
       </q-item>
@@ -24,6 +26,7 @@ export default {
   data() {
     return {
       postList: [],
+      readedLinks: JSON.parse(localStorage.getItem('slackReadedLinks')) || [],
     };
   },
   watch: {
@@ -36,6 +39,12 @@ export default {
       axiosInstance.get(`/GetTypeInfo?id=${this.$route.query.id}`).then((res) => {
         this.$set(this, 'postList', res.data.Data);
       });
+    },
+    clickHandler(item) {
+      if (!this.readedLinks.includes(item.url)) {
+        this.readedLinks.push(item.url);
+      }
+      localStorage.setItem('slackReadedLinks', JSON.stringify(this.readedLinks));
     },
   },
   created() {
