@@ -7,7 +7,7 @@
         v-ripple
         tag="a"
         target="_blank"
-        :style="`color: ${(readedLinks.includes(item.url)) ? 'gray' : 'unset'}`"
+        :style="`color: ${(readedLinks.includes(item.url)) ? 'grey' : 'unset'}`"
         :href="item.url"
         :key="item.index"
         @click="clickHandler(item)"

@@ -24,7 +24,8 @@ export default function (/* { store, ssrContext } */) {
 
   Router.beforeEach((to, from, next) => {
     if (to.fullPath === '/') {
-      next('/?id=1');
+      const id = localStorage.getItem('slackActiveTab');
+      next(`/?id=${id}`);
     } else {
       next();
     }

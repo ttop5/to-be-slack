@@ -1,6 +1,6 @@
 {
   "name": "ToBeSlack",
-  "version": "0.0.1",
+  "version": "1.3.1",
   "description": "摸鱼愉快",
   "productName": "今日热榜",
   "cordovaId": "org.cordova.quasar.app",

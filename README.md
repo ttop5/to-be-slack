@@ -11,9 +11,7 @@
 
 ## 最近更新
 
-大佬们心心念念的左侧菜单定制功能来啦！
-
-![屏幕快照 2019-08-02 18 15 12](https://user-images.githubusercontent.com/9512362/62363287-9ea36e80-b551-11e9-8e1c-06955c99093c.png)
+[https://github.com/ttop5/to-be-slack/releases](https://github.com/ttop5/to-be-slack/releases)
 
 
 ## 使用截图

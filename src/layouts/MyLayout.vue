@@ -23,8 +23,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-2"
-    >
+    <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-2">
       <q-list separator class="rounded-borders text-primary q-pa-md">
         <q-item-label header class="flex">
           <q-item-section>Links</q-item-section>
@@ -53,6 +52,7 @@
           :key="item.id"
           :to="`/?id=${item.id}`"
           :active="$route.query.id === item.id"
+          @click="clickHandler(item.id)"
         >
           <q-item-section>{{ item.title }}</q-item-section>
           <q-item-section side top>
@@ -87,7 +87,7 @@ export default {
   watch: {
     typeList: {
       handler: function saveLinks(newValue) {
-        localStorage.setItem('slackLinks', JSON.stringify(newValue));
+        localStorage.setItem('slackTabs', JSON.stringify(newValue));
       },
       deep: true,
     },
@@ -122,10 +122,13 @@ export default {
     showAll() {
       this.getType();
     },
+    clickHandler(id) {
+      localStorage.setItem('slackActiveTab', id);
+    },
   },
   created() {
-    if (localStorage.getItem('slackLinks')) {
-      this.$set(this, 'typeList', JSON.parse(localStorage.getItem('slackLinks')));
+    if (localStorage.getItem('slackTabs')) {
+      this.$set(this, 'typeList', JSON.parse(localStorage.getItem('slackTabs')));
       this.typeList.forEach((item) => {
         this.typeListObj[item.id] = item.title;
       });
