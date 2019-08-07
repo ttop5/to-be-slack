@@ -8,7 +8,7 @@
         tag="a"
         target="_blank"
         :style="`color: ${(readedLinks.includes(item.url)) ? 'grey' : 'unset'}`"
-        :href="item.url"
+        :href="item.url || 'javascript:void(0)'"
         :key="item.index"
         @click="clickHandler(item)"
       >
