@@ -12,14 +12,28 @@
           <q-icon name="menu" />
         </q-btn>
         <q-toolbar-title>{{ typeListObj[$route.query.id] }}</q-toolbar-title>
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user=ttop5&repo=to-be-slack&type=star&count=true"
-          frameborder="0"
-          scrolling="0"
-          width="100px"
-          height="20px"
-        >
-        </iframe>
+        <q-btn-dropdown flat label="更多">
+          <q-list>
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack">
+              <q-item-section avatar>
+                <q-icon name="fab fa-github" />
+              </q-item-section>
+              <q-item-section>GitHub 仓库</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://chrome.google.com/webstore/detail/%E4%BB%8A%E6%97%A5%E7%83%AD%E6%A6%9C/ldmhioaifhbepgelhgcjkpfjlhmcjmmd">
+              <q-item-section avatar>
+                <q-icon name="fab fa-chrome" />
+              </q-item-section>
+              <q-item-section>Chrome 插件</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack/blob/master/README.md#pwa-1">
+              <q-item-section avatar>
+                <q-icon name="fas fa-mobile-alt" />
+              </q-item-section>
+              <q-item-section>PWA 程序使用</q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
       </q-toolbar>
     </q-header>
 
@@ -28,14 +42,14 @@
         <q-item-label header class="flex">
           <q-item-section>Links</q-item-section>
           <q-item-section side top>
-            <q-btn-dropdown flat label="菜单定制">
+            <q-btn-dropdown flat label="设置">
               <q-list>
                 <q-item clickable v-ripple>
-                  <q-toggle dense v-model="showEdit">编辑开关</q-toggle>
+                  <q-toggle dense v-model="showEdit">菜单编辑</q-toggle>
                 </q-item>
                 <q-item clickable v-ripple @click="showAll">
-                  <q-item-section avatar style="padding-left: 12px;">
-                    <q-icon name="list" size="28px" />
+                  <q-item-section avatar style="padding-left: 18px;">
+                    <q-icon name="fas fa-list" size="22px" />
                   </q-item-section>
                   <q-item-section>恢复默认</q-item-section>
                 </q-item>
