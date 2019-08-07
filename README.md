@@ -37,7 +37,7 @@
 
 #### Chrome 插件
 
-如果您的网络无法访问 Chrome 商店，您也可以从 [这里](https://github.com/ttop5/to-be-slack/releases) 下载最新的 `to-be-slack.crx` 文件。
+您可以直接点击[这里](https://chrome.google.com/webstore/detail/%E4%BB%8A%E6%97%A5%E7%83%AD%E6%A6%9C/ldmhioaifhbepgelhgcjkpfjlhmcjmmd)进行安装。如果您的网络无法访问 Chrome 商店，您也可以从 [这里](https://github.com/ttop5/to-be-slack/releases) 下载最新的 `to-be-slack.crx` 文件,
 
 然后打开 Chrome 浏览器地址栏输入 chrome://extensions ，打开 `开发者模式`，把下载好的文件拖拽到此界面，点击 `添加拓展程序` 来完成安装。 
 
@@ -45,11 +45,11 @@
 
 #### PWA
 
-移动端推荐使用 PWA 程序，使用效果最佳。因为有了这个好东西，所以暂时懒得打包成 APP 了。
+移动端推荐使用 PWA 程序，使用效果最佳且简单方便。~~因为有了这个好东西，所以暂时懒得打包成 APP 了~~ 现已支持打包成 Android 和 iOS 程序，如有需要可自行打包使用。
 
-iOS：使用 Safari 打开 [https://ttop5.github.io/to-be-slack](https://ttop5.github.io/to-be-slack)  -> 正下方中间分享按钮 -> 添加到主屏幕；
+iOS：使用 `Safari` 打开 [https://ttop5.github.io/to-be-slack](https://ttop5.github.io/to-be-slack)  -> 正下方中间分享按钮 -> 添加到主屏幕；
 
-Android：使用 Chrome 打开 [https://ttop5.github.io/to-be-slack](https://ttop5.github.io/to-be-slack)  -> 右上角菜单 -> 添加到主屏幕；
+Android：使用 `Chrome` 打开 [https://ttop5.github.io/to-be-slack](https://ttop5.github.io/to-be-slack)  -> 右上角菜单 -> 添加到主屏幕；如果不成功，请确认 Chrome 有添加桌面快捷方式的权限。
 
 操作完成后手机主屏幕就会多出一个今日热榜的程序啦！
 
