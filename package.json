@@ -25,13 +25,16 @@
     "quasar": "^1.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
     "@quasar/app": "^1.0.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^5.0.0",
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.0.1",
+    "husky": "^3.0.2"
   },
   "engines": {
     "node": ">= 8.9.0",
