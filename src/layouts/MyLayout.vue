@@ -20,13 +20,13 @@
               </q-item-section>
               <q-item-section>GitHub 仓库</q-item-section>
             </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://chrome.google.com/webstore/detail/%E4%BB%8A%E6%97%A5%E7%83%AD%E6%A6%9C/ldmhioaifhbepgelhgcjkpfjlhmcjmmd">
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack/blob/master/README.md#chrome-%E6%8F%92%E4%BB%B6">
               <q-item-section avatar>
                 <q-icon name="fab fa-chrome" />
               </q-item-section>
               <q-item-section>Chrome 插件</q-item-section>
             </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack/blob/master/README.md#pwa-1">
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack/blob/master/README.md#pwa">
               <q-item-section avatar>
                 <q-icon name="fas fa-mobile-alt" />
               </q-item-section>
