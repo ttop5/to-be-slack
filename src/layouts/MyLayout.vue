@@ -30,7 +30,13 @@
               <q-item-section avatar>
                 <q-icon name="fas fa-mobile-alt" />
               </q-item-section>
-              <q-item-section>PWA 程序使用</q-item-section>
+              <q-item-section>PWA 应用程序</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack/blob/master/README.md#%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F">
+              <q-item-section avatar>
+                <q-icon name="fas fa-laptop" />
+              </q-item-section>
+              <q-item-section>桌面端应用程序</q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>

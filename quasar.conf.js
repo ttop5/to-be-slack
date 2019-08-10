@@ -148,7 +148,7 @@ module.exports = function (ctx) {
     },
 
     electron: {
-      // bundler: 'builder', // or 'packager'
+      bundler: 'packager', // or 'builder'
 
       extendWebpack (cfg) {
         // do something with Electron main process Webpack cfg
@@ -157,6 +157,8 @@ module.exports = function (ctx) {
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
+
+        platform: 'all',
 
         // OS X / Mac App Store
         // appBundleId: '',
@@ -171,7 +173,7 @@ module.exports = function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        // appId: 'to-be-slack'
+        // appId: 'com.electron.to-be-slack',
       }
     }
   }

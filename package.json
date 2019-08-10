@@ -1,5 +1,5 @@
 {
-  "name": "ToBeSlack",
+  "name": "to-be-slack",
   "version": "1.4.0",
   "description": "摸鱼愉快",
   "productName": "今日热榜",
@@ -12,11 +12,12 @@
     "dev-pwa": "quasar dev -m pwa",
     "dev-android": "quasar dev -m android",
     "dev-ios": "quasar dev -m ios",
+    "dev-electron": "quasar dev -m electron",
     "build": "quasar build && cp src-ext/background.html ./dist/spa && cp src-ext/manifest.json ./dist/spa",
     "build-pwa": "quasar build -m pwa",
     "build-android": "quasar build -m android",
     "build-ios": "quasar build -m ios",
-    "deploy": "yarn build-pwa && node publish.js",
+    "build-electron": "quasar build -m electron",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
@@ -30,6 +31,12 @@
     "@quasar/app": "^1.0.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "devtron": "^1.4.0",
+    "electron": "^5.0.0",
+    "electron-builder": "^21.2.0",
+    "electron-debug": "^3.0.0",
+    "electron-devtools-installer": "^2.2.4",
+    "electron-packager": "^13.1.0",
     "eslint": "^5.10.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^5.0.0",
