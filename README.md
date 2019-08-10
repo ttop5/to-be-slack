@@ -14,7 +14,7 @@
 
 #### Chrome 插件
 
-~~您可以直接点击[这里](https://chrome.google.com/webstore/detail/%E4%BB%8A%E6%97%A5%E7%83%AD%E6%A6%9C/ldmhioaifhbepgelhgcjkpfjlhmcjmmd)进行安装~~ (政策原因重新审核中)。如果您的网络无法访问 Chrome 商店，您也可以从 [这里](https://github.com/ttop5/to-be-slack/releases) 下载最新版本的 `to-be-slack.crx` 文件,
+~~您可以直接点击[这里](https://chrome.google.com/webstore/detail/%E4%BB%8A%E6%97%A5%E7%83%AD%E6%A6%9C/ldmhioaifhbepgelhgcjkpfjlhmcjmmd)进行安装~~ (政策原因重新审核中)。如果您的网络无法访问 Chrome 商店，您也可以从 [这里](https://github.com/ttop5/to-be-slack/releases) 下载最新版本的 `今日热榜-chrome-extension.crx` 文件,
 
 然后打开 Chrome 浏览器地址栏输入 [chrome://extensions](chrome://extensions) ，打开 `开发者模式`，把下载好的文件拖拽到此界面，点击 `添加拓展程序` 来完成安装。 
 

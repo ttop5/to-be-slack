@@ -1,6 +1,6 @@
 {
   "name": "to-be-slack",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "摸鱼愉快",
   "productName": "今日热榜",
   "cordovaId": "org.cordova.quasar.app",
@@ -13,11 +13,12 @@
     "dev-android": "quasar dev -m android",
     "dev-ios": "quasar dev -m ios",
     "dev-electron": "quasar dev -m electron",
-    "build": "quasar build && cp src-ext/background.html ./dist/spa && cp src-ext/manifest.json ./dist/spa",
+    "build": "quasar build && cp src-extension/background.html ./dist/spa && cp src-extension/manifest.json ./dist/spa",
     "build-pwa": "quasar build -m pwa",
     "build-android": "quasar build -m android",
     "build-ios": "quasar build -m ios",
     "build-electron": "quasar build -m electron",
+    "deploy": "yarn build-pwa && node publish.js",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
