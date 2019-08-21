@@ -14,25 +14,25 @@
         <q-toolbar-title>{{ typeListObj[$route.query.id] }}</q-toolbar-title>
         <q-btn-dropdown flat label="更多">
           <q-list>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack">
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs">
               <q-item-section avatar>
                 <q-icon name="fab fa-github" />
               </q-item-section>
               <q-item-section>GitHub 仓库</q-item-section>
             </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack/blob/master/README.md#chrome-%E6%8F%92%E4%BB%B6">
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/blob/master/README.md#chrome-%E6%8F%92%E4%BB%B6">
               <q-item-section avatar>
                 <q-icon name="fab fa-chrome" />
               </q-item-section>
               <q-item-section>Chrome 插件</q-item-section>
             </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack/blob/master/README.md#pwa">
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/blob/master/README.md#pwa">
               <q-item-section avatar>
                 <q-icon name="fas fa-mobile-alt" />
               </q-item-section>
               <q-item-section>PWA 应用程序</q-item-section>
             </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/ttop5/to-be-slack/blob/master/README.md#%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F">
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/blob/master/README.md#%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F">
               <q-item-section avatar>
                 <q-icon name="fas fa-laptop" />
               </q-item-section>
@@ -130,8 +130,8 @@ export default {
         });
         // 去掉不需要的 tab
         data.forEach((item, index) => {
-          if (item.id === '100') {
-            data.splice(index, 2);
+          if (item.id === '101') {
+            data.splice(index, 1);
           }
         });
         // 根据热度排序
