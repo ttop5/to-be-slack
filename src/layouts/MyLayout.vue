@@ -20,23 +20,29 @@
               </q-item-section>
               <q-item-section>GitHub 仓库</q-item-section>
             </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/blob/master/README.md#chrome-%E6%8F%92%E4%BB%B6">
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/wiki/%E6%9C%8D%E5%8A%A1%E5%85%AC%E5%91%8A">
+              <q-item-section avatar>
+                <q-icon name="fas fa-bullhorn" />
+              </q-item-section>
+              <q-item-section>服务公告</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#chrome-%E6%8F%92%E4%BB%B6">
               <q-item-section avatar>
                 <q-icon name="fab fa-chrome" />
               </q-item-section>
               <q-item-section>Chrome 插件</q-item-section>
             </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/blob/master/README.md#pwa">
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#pwa-%E7%A8%8B%E5%BA%8F">
               <q-item-section avatar>
                 <q-icon name="fas fa-mobile-alt" />
               </q-item-section>
-              <q-item-section>PWA 应用程序</q-item-section>
+              <q-item-section>PWA 程序</q-item-section>
             </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/blob/master/README.md#%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F">
+            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#%E6%A1%8C%E9%9D%A2%E7%AB%AF%E7%A8%8B%E5%BA%8F">
               <q-item-section avatar>
                 <q-icon name="fas fa-laptop" />
               </q-item-section>
-              <q-item-section>桌面端应用程序</q-item-section>
+              <q-item-section>桌面端程序</q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
@@ -57,7 +63,7 @@
                   <q-item-section avatar style="padding-left: 18px;">
                     <q-icon name="fas fa-list" size="22px" />
                   </q-item-section>
-                  <q-item-section>恢复默认</q-item-section>
+                  <q-item-section>更新菜单</q-item-section>
                 </q-item>
               </q-list>
             </q-btn-dropdown>
