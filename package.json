@@ -30,7 +30,6 @@
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@quasar/app": "^1.0.0",
-    "@quasar/quasar-app-extension-icon-genie": "^1.0.1",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "devtron": "^1.4.0",
