@@ -3,7 +3,7 @@
     "minify_dev": "pngquant",
     "minify_build": "pngquant",
     "cordova": {
-      "background_color": "#007be3",
+      "background_color": "#fff",
       "splashscreen_type": "pure"
     },
     "build_always": false,
@@ -18,6 +18,12 @@
       },
       "build": {
         "pwa": {
+          "iconHash": "8cfe3d08151c70b8f2ed380eea090541"
+        },
+        "electron": {
+          "iconHash": "8cfe3d08151c70b8f2ed380eea090541"
+        },
+        "spa": {
           "iconHash": "8cfe3d08151c70b8f2ed380eea090541"
         }
       }
