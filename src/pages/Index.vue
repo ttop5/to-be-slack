@@ -8,7 +8,7 @@
         tag="a"
         target="_blank"
         :style="`color: ${(readedLinks.includes(item.url)) ? 'grey' : 'unset'}`"
-        :href="item.url || 'javascript:void(0)'"
+        :href="escape2Html(item.url) || 'javascript:void(0)'"
         :key="item.index"
         @click="clickHandler(item)"
       >
@@ -38,6 +38,13 @@ export default {
     },
   },
   methods: {
+    escape2Html(str) {
+      let temp = document.createElement('div');
+      temp.innerHTML = str;
+      const output = temp.innerText || temp.textContent;
+      temp = null;
+      return output;
+    },
     getPostList() {
       axiosInstance.get(`/GetTypeInfo?id=${this.$route.query.id}`).then((res) => {
         this.$set(this, 'postList', res.data.Data);
