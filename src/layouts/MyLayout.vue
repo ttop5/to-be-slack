@@ -14,35 +14,19 @@
         <q-toolbar-title>{{ typeListObj[$route.query.id] }}</q-toolbar-title>
         <q-btn-dropdown flat label="更多">
           <q-list>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs">
+            <q-item
+              v-for="item in rightTopMenuList"
+              clickable
+              v-ripple
+              tag="a"
+              target="_blank"
+              :key="item.index"
+              :href="item.href"
+            >
               <q-item-section avatar>
-                <q-icon name="fab fa-github" />
+                <q-icon :name="item.icon" />
               </q-item-section>
-              <q-item-section>GitHub 仓库</q-item-section>
-            </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/wiki/%E6%9C%8D%E5%8A%A1%E5%85%AC%E5%91%8A">
-              <q-item-section avatar>
-                <q-icon name="fas fa-bullhorn" />
-              </q-item-section>
-              <q-item-section>服务公告</q-item-section>
-            </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#chrome-%E6%8F%92%E4%BB%B6">
-              <q-item-section avatar>
-                <q-icon name="fab fa-chrome" />
-              </q-item-section>
-              <q-item-section>Chrome 插件</q-item-section>
-            </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#pwa-%E7%A8%8B%E5%BA%8F">
-              <q-item-section avatar>
-                <q-icon name="fas fa-mobile-alt" />
-              </q-item-section>
-              <q-item-section>PWA 程序</q-item-section>
-            </q-item>
-            <q-item clickable v-ripple tag="a" target="_blank" href="https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#%E6%A1%8C%E9%9D%A2%E7%AB%AF%E7%A8%8B%E5%BA%8F">
-              <q-item-section avatar>
-                <q-icon name="fas fa-laptop" />
-              </q-item-section>
-              <q-item-section>桌面端程序</q-item-section>
+              <q-item-section>{{ item.title }}</q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
@@ -108,6 +92,33 @@ export default {
       showEdit: false,
       typeList: [],
       typeListObj: {},
+      rightTopMenuList: [
+        {
+          href: 'https://github.com/tophubs',
+          icon: 'fab fa-github',
+          title: 'GitHub 仓库',
+        },
+        {
+          href: 'https://github.com/tophubs/to-be-slack/wiki/%E6%9C%8D%E5%8A%A1%E5%85%AC%E5%91%8A',
+          icon: 'fas fa-bullhorn',
+          title: '服务公告',
+        },
+        {
+          href: 'https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#chrome-%E6%8F%92%E4%BB%B6',
+          icon: 'fab fa-chrome',
+          title: 'Chrome 插件',
+        },
+        {
+          href: 'https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#pwa-%E7%A8%8B%E5%BA%8F',
+          icon: 'fas fa-mobile-alt',
+          title: 'PWA 程序',
+        },
+        {
+          href: 'https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E#%E6%A1%8C%E9%9D%A2%E7%AB%AF%E7%A8%8B%E5%BA%8F',
+          icon: 'fas fa-laptop',
+          title: '桌面端程序',
+        },
+      ],
     };
   },
   watch: {
