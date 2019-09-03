@@ -14,7 +14,7 @@
       >
         <q-item-section>
           <q-item-label>{{ item.title }}</q-item-label>
-          <q-item-label v-if="item.desc" caption lines="2">{{ item.desc }}</q-item-label>
+          <q-item-label v-if="item.desc" caption lines="1">{{ item.desc }}</q-item-label>
         </q-item-section>
       </q-item>
     </q-list>
@@ -63,5 +63,5 @@ export default {
 };
 </script>
 
-<style>
+<style lang="stylus" scoped>
 </style>
