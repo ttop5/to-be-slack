@@ -36,7 +36,7 @@
     <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-2">
       <q-item-label header class="flex justify-between absolute-top">
         <q-item-section side top>
-          <q-select outlined filled v-model="typeClass" :options="typeClassOptions" />
+          <q-select v-model="typeClass" outlined filled :options="typeClassOptions" />
         </q-item-section>
         <q-item-section side top>
           <q-btn-dropdown flat label="设置" style="height: 100%">
