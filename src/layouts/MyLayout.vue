@@ -34,10 +34,12 @@
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-2">
-      <q-item-label header class="flex absolute-top">
-        <q-item-section>Links</q-item-section>
+      <q-item-label header class="flex justify-between absolute-top">
         <q-item-section side top>
-          <q-btn-dropdown flat label="设置">
+          <q-select outlined filled v-model="typeClass" :options="typeClassOptions" />
+        </q-item-section>
+        <q-item-section side top>
+          <q-btn-dropdown flat label="设置" style="height: 100%">
             <q-list>
               <q-item clickable v-ripple>
                 <q-toggle dense v-model="showEdit">菜单编辑</q-toggle>
@@ -46,7 +48,7 @@
                 <q-item-section avatar style="padding-left: 18px;">
                   <q-icon name="fas fa-list" size="22px" />
                 </q-item-section>
-                <q-item-section>默认菜单</q-item-section>
+                <q-item-section>恢复默认</q-item-section>
               </q-item>
             </q-list>
           </q-btn-dropdown>
@@ -92,6 +94,8 @@ export default {
       showEdit: false,
       typeList: [],
       typeListObj: {},
+      typeClass: (localStorage.getItem('slackTypeClass') && localStorage.getItem('slackTypeClass').replace(new RegExp('"', 'g'), '')) || '全部',
+      typeClassOptions: [],
       hideTypeList: JSON.parse(localStorage.getItem('slackHideTabs')) || [],
       rightTopMenuList: [
         {
@@ -123,6 +127,12 @@ export default {
     };
   },
   watch: {
+    typeClass: {
+      handler: function saveLinks(newValue) {
+        localStorage.setItem('slackTypeClass', JSON.stringify(newValue));
+        this.getType();
+      },
+    },
     hideTypeList: {
       handler: function saveLinks(newValue) {
         localStorage.setItem('slackHideTabs', JSON.stringify(newValue));
@@ -137,8 +147,21 @@ export default {
         return value2 - value1;
       };
     },
+    getTypeClass() {
+      axiosInstance.get('/GetTypeClass').then((res) => {
+        const data = ['全部'];
+        res.data.Data.forEach((item) => {
+          data.push(item.type);
+        });
+        this.$set(this, 'typeClassOptions', data);
+      });
+    },
     getType() {
-      axiosInstance.get('/GetType').then((res) => {
+      let url = '/GetType';
+      if (this.typeClass !== '全部') {
+        url = `/GetType?type=${this.typeClass}`;
+      }
+      axiosInstance.get(url).then((res) => {
         let data = res.data.Data;
         // [] => {} && 去掉不需要的 tab
         data.forEach((item, index) => {
@@ -158,13 +181,14 @@ export default {
       }
     },
     showAllType() {
-      localStorage.removeItem('slackHideTabs');
+      this.$set(this, 'hideTypeList', []);
     },
     clickHandler(id) {
       localStorage.setItem('slackActiveTab', id);
     },
   },
   created() {
+    this.getTypeClass();
     this.getType();
   },
 };
@@ -175,6 +199,8 @@ export default {
     z-index 1001
     background-color #f0f0f0
     padding 7px 16px
+  .q-item__section--side
+    padding-right 0
   .menu-link
     color white
     background $primary
