@@ -34,28 +34,28 @@
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-2">
-      <q-list separator class="rounded-borders text-primary q-pa-md">
-        <q-item-label header class="flex">
-          <q-item-section>Links</q-item-section>
-          <q-item-section side top>
-            <q-btn-dropdown flat label="设置">
-              <q-list>
-                <q-item clickable v-ripple>
-                  <q-toggle dense v-model="showEdit">菜单编辑</q-toggle>
-                </q-item>
-                <q-item clickable v-ripple @click="showAll">
-                  <q-item-section avatar style="padding-left: 18px;">
-                    <q-icon name="fas fa-list" size="22px" />
-                  </q-item-section>
-                  <q-item-section>更新菜单</q-item-section>
-                </q-item>
-              </q-list>
-            </q-btn-dropdown>
-          </q-item-section>
-        </q-item-label>
+      <q-item-label header class="flex absolute-top">
+        <q-item-section>Links</q-item-section>
+        <q-item-section side top>
+          <q-btn-dropdown flat label="设置">
+            <q-list>
+              <q-item clickable v-ripple>
+                <q-toggle dense v-model="showEdit">菜单编辑</q-toggle>
+              </q-item>
+              <q-item clickable v-ripple @click="showAllType">
+                <q-item-section avatar style="padding-left: 18px;">
+                  <q-icon name="fas fa-list" size="22px" />
+                </q-item-section>
+                <q-item-section>默认菜单</q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+        </q-item-section>
+      </q-item-label>
+      <q-list separator class="rounded-borders text-primary q-pa-md q-mt-xl">
         <q-item
           v-for="item in typeList"
-          v-show="item.display"
+          v-show="!hideTypeList.includes(item.id)"
           clickable
           v-ripple
           exact-active-class="menu-link"
@@ -66,7 +66,7 @@
         >
           <q-item-section>{{ item.title }}</q-item-section>
           <q-item-section side top>
-            <q-btn v-if="showEdit" flat icon="delete" @click="item.display = false;" />
+            <q-btn v-if="showEdit" flat icon="delete" @click="hideType(item.id)" />
           </q-item-section>
         </q-item>
       </q-list>
@@ -92,6 +92,7 @@ export default {
       showEdit: false,
       typeList: [],
       typeListObj: {},
+      hideTypeList: JSON.parse(localStorage.getItem('slackHideTabs')) || [],
       rightTopMenuList: [
         {
           href: 'https://github.com/tophubs',
@@ -122,11 +123,10 @@ export default {
     };
   },
   watch: {
-    typeList: {
+    hideTypeList: {
       handler: function saveLinks(newValue) {
-        localStorage.setItem('slackTabs', JSON.stringify(newValue));
+        localStorage.setItem('slackHideTabs', JSON.stringify(newValue));
       },
-      deep: true,
     },
   },
   methods: {
@@ -140,13 +140,9 @@ export default {
     getType() {
       axiosInstance.get('/GetType').then((res) => {
         let data = res.data.Data;
-        // 默认全部显示
-        data.forEach((item) => {
-          item.display = true;
-          this.typeListObj[item.id] = item.title;
-        });
-        // 去掉不需要的 tab
+        // [] => {} && 去掉不需要的 tab
         data.forEach((item, index) => {
+          this.typeListObj[item.id] = item.title;
           if (item.id === '101') {
             data.splice(index, 1);
           }
@@ -156,27 +152,29 @@ export default {
         this.$set(this, 'typeList', data);
       });
     },
-    showAll() {
-      this.getType();
+    hideType(id) {
+      if (!this.hideTypeList.includes(id)) {
+        this.hideTypeList.push(id);
+      }
+    },
+    showAllType() {
+      localStorage.removeItem('slackHideTabs');
     },
     clickHandler(id) {
       localStorage.setItem('slackActiveTab', id);
     },
   },
   created() {
-    if (localStorage.getItem('slackTabs')) {
-      this.$set(this, 'typeList', JSON.parse(localStorage.getItem('slackTabs')));
-      this.typeList.forEach((item) => {
-        this.typeListObj[item.id] = item.title;
-      });
-    } else {
-      this.getType();
-    }
+    this.getType();
   },
 };
 </script>
 
 <style lang="stylus" scoped>
+  .q-item__label--header
+    z-index 1001
+    background-color #f0f0f0
+    padding 7px 16px
   .menu-link
     color white
     background $primary
