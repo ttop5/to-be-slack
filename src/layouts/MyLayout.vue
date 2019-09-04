@@ -34,27 +34,31 @@
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-2">
-      <q-item-label header class="flex justify-between absolute-top">
-        <q-item-section side top>
-          <q-select v-model="typeClass" outlined filled :options="typeClassOptions" />
-        </q-item-section>
-        <q-item-section side top>
-          <q-btn-dropdown flat label="设置" style="height: 100%">
-            <q-list>
-              <q-item clickable v-ripple>
-                <q-toggle dense v-model="showEdit">菜单编辑</q-toggle>
-              </q-item>
-              <q-item clickable v-ripple @click="showAllType">
-                <q-item-section avatar style="padding-left: 18px;">
-                  <q-icon name="fas fa-list" size="22px" />
-                </q-item-section>
-                <q-item-section>恢复默认</q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-        </q-item-section>
-      </q-item-label>
-      <q-list separator class="rounded-borders text-primary q-pa-md q-mt-xl">
+      <div
+        id="left-top"
+        class="left-top flex justify-between absolute-top"
+      >
+        <q-select
+          v-model="typeClass"
+          outlined
+          filled
+          :options="typeClassOptions"
+        />
+        <q-btn-dropdown flat label="设置" style="height: 56px;">
+          <q-list>
+            <q-item clickable v-ripple>
+              <q-toggle dense v-model="showEdit">菜单编辑</q-toggle>
+            </q-item>
+            <q-item clickable v-ripple @click="showAllType">
+              <q-item-section avatar style="padding-left: 18px;">
+                <q-icon name="fas fa-list" size="22px" />
+              </q-item-section>
+              <q-item-section>恢复默认</q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+      </div>
+      <q-list separator id="left-list" class="rounded-borders text-primary q-pa-md q-mt-xl">
         <q-item
           v-for="item in typeList"
           v-show="!hideTypeList.includes(item.id)"
@@ -191,16 +195,22 @@ export default {
     this.getTypeClass();
     this.getType();
   },
+  mounted() {
+    const isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if (isiOS) {
+      document.getElementById('left-top').classList.remove('absolute-top');
+      document.getElementById('left-list').classList.remove('q-mt-xl');
+    }
+  },
 };
 </script>
 
 <style lang="stylus" scoped>
-  .q-item__label--header
+  .left-top
     z-index 1001
     background-color #f0f0f0
-    padding 7px 16px
-  .q-item__section--side
-    padding-right 0
+    color #706f70
+    padding 0 16px
   .menu-link
     color white
     background $primary
