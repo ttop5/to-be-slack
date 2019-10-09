@@ -39,6 +39,9 @@ export default {
   },
   methods: {
     escape2Html(str) {
+      if (str.indexOf('//tieba.baidu.com/') === -1) {
+        return str;
+      }
       let temp = document.createElement('div');
       temp.innerHTML = str;
       const output = temp.innerText || temp.textContent;
