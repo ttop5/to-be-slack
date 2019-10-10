@@ -15,6 +15,14 @@
         <q-item-section>
           <q-item-label>{{ item.title }}</q-item-label>
           <q-item-label v-if="item.desc" caption lines="1">{{ item.desc }}</q-item-label>
+          <img
+            v-if="
+              item.url.includes('.gif') ||
+              item.url.includes('.jpg') ||
+              item.url.includes('.png')
+            "
+            :src="item.url"
+          >
         </q-item-section>
       </q-item>
     </q-list>
@@ -67,4 +75,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  img
+    width 50%
+    margin-top 5px
+
+  @media (max-width: 768px)
+    img
+      width 100%
 </style>
