@@ -7,21 +7,21 @@
         v-ripple
         tag="a"
         target="_blank"
-        :style="`color: ${(readedLinks.includes(item.url)) ? 'grey' : 'unset'}`"
-        :href="escape2Html(item.url) || 'javascript:void(0)'"
+        :style="`color: ${(readedLinks.includes(item.Url)) ? 'grey' : 'unset'}`"
+        :href="escape2Html(item.Url) || 'javascript:void(0)'"
         :key="item.index"
         @click="clickHandler(item)"
       >
         <q-item-section>
-          <q-item-label>{{ item.title }}</q-item-label>
-          <q-item-label v-if="item.desc" caption lines="1">{{ item.desc }}</q-item-label>
+          <q-item-label>{{ item.Title }}</q-item-label>
+          <q-item-label v-if="item.Desc" caption lines="1">{{ item.Desc }}</q-item-label>
           <img
             v-if="
-              item.url.includes('.gif') ||
-              item.url.includes('.jpg') ||
-              item.url.includes('.png')
+              item.Url.includes('.gif') ||
+              item.Url.includes('.jpg') ||
+              item.Url.includes('.png')
             "
-            :src="item.url"
+            :src="item.Url"
           >
         </q-item-section>
       </q-item>
@@ -57,13 +57,13 @@ export default {
       return output;
     },
     getPostList() {
-      axiosInstance.get(`/GetTypeInfo?id=${this.$route.query.id}`).then((res) => {
+      axiosInstance.get(`/GetAllInfoGzip?id=${this.$route.query.id}`).then((res) => {
         this.$set(this, 'postList', res.data.Data);
       });
     },
     clickHandler(item) {
-      if (!this.readedLinks.includes(item.url)) {
-        this.readedLinks.push(item.url);
+      if (!this.readedLinks.includes(item.Url)) {
+        this.readedLinks.push(item.Url);
       }
       localStorage.setItem('slackReadedLinks', JSON.stringify(this.readedLinks));
     },
