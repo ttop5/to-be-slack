@@ -103,7 +103,7 @@ export default {
       hideTypeList: JSON.parse(localStorage.getItem('slackHideTabs')) || [],
       rightTopMenuList: [
         {
-          href: 'https://github.com/tophubs',
+          href: 'https://github.com/tophubs/to-be-slack',
           icon: 'fab fa-github',
           title: 'GitHub 仓库',
         },
