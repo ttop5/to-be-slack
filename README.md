@@ -2,7 +2,7 @@
 
 今日热榜，摸鱼神器。支持全平台： PC 端移动端 Web、Chrome 插件、PWA 程序（Android、iOS）和桌面端程序（Win、Linux、MacOS）。
 
-线上地址：[https://tophub.fun](https://tophub.fun)
+线上地址：[https://ttop5.net/to-be-slack](https://ttop5.net/to-be-slack)
 
 最近更新：[https://github.com/tophubs/to-be-slack/releases](https://github.com/tophubs/to-be-slack/releases)
 

@@ -1,5 +1,12 @@
 <template>
   <q-page class="q-pa-lg">
+    <q-banner v-if="showBanner" inline-actions rounded class="bg-orange text-white q-mb-lg">
+      本站永久地址：<a target="_blank" href="http://tophub.ttop5.net">tophub.ttop5.net</a>
+      <template v-slot:action>
+        <q-btn flat label="我已收藏" @click="showBanner = false" />
+      </template>
+    </q-banner>
+
     <q-list bordered separator class="full-width">
       <q-item
         v-for="item in postList"
@@ -36,6 +43,7 @@ export default {
   name: 'PageIndex',
   data() {
     return {
+      showBanner: true,
       postList: [],
       readedLinks: JSON.parse(localStorage.getItem('slackReadedLinks')) || [],
     };
