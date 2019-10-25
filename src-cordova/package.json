@@ -1,7 +1,7 @@
 {
   "name": "org.cordova.quasar.app",
   "displayName": "今日热榜",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
