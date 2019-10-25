@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://www.printf520.com:8080',
+  baseURL: 'https://www.tophub.fun:8080',
 });
 
 export default ({ Vue }) => {
