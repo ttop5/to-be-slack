@@ -70,7 +70,7 @@
           :active="$route.query.id === item.id"
           @click="clickHandler(item.id)"
         >
-          <q-item-section>{{ item.title }}</q-item-section>
+          <q-item-section>{{ item.name }}</q-item-section>
           <q-item-section side top>
             <q-btn v-if="showEdit" flat icon="delete" @click="hideType(item.id)" />
           </q-item-section>
@@ -96,6 +96,7 @@ export default {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
       showEdit: false,
+      allTypeListData: {},
       typeList: [],
       typeListObj: {},
       typeClass: (localStorage.getItem('slackTypeClass') && localStorage.getItem('slackTypeClass').replace(new RegExp('"', 'g'), '')) || '全部',
@@ -134,7 +135,8 @@ export default {
     typeClass: {
       handler: function saveLinks(newValue) {
         localStorage.setItem('slackTypeClass', JSON.stringify(newValue));
-        this.getType();
+        this.typeList = this.allTypeListData[newValue];
+        // this.getType();
       },
     },
     hideTypeList: {
@@ -151,34 +153,42 @@ export default {
         return value2 - value1;
       };
     },
-    getTypeClass() {
-      axiosInstance.get('/GetTypeClass').then((res) => {
-        const data = ['全部'];
-        res.data.Data.forEach((item) => {
-          data.push(item.type);
-        });
-        this.$set(this, 'typeClassOptions', data);
+    getAllType() {
+      axiosInstance.get('/GetAllType').then((res) => {
+        this.$set(this, 'allTypeListData', res.data.Data);
+        const typeClassOptions = Object.keys(res.data.Data);
+        this.$set(this, 'typeClassOptions', typeClassOptions);
+        this.$set(this, 'typeList', res.data.Data[this.typeClass]);
       });
     },
-    getType() {
-      let url = '/GetType';
-      if (this.typeClass !== '全部') {
-        url = `/GetType?type=${this.typeClass}`;
-      }
-      axiosInstance.get(url).then((res) => {
-        let data = res.data.Data;
-        // [] => {} && 去掉不需要的 tab
-        data.forEach((item, index) => {
-          this.typeListObj[item.id] = item.title;
-          if (item.id === '101') {
-            data.splice(index, 1);
-          }
-        });
-        // 根据热度排序
-        data = data.sort(this.compare('sort'));
-        this.$set(this, 'typeList', data);
-      });
-    },
+    // getTypeClass() {
+    //   axiosInstance.get('/GetTypeClass').then((res) => {
+    //     const data = ['全部'];
+    //     res.data.Data.forEach((item) => {
+    //       data.push(item.type);
+    //     });
+    //     this.$set(this, 'typeClassOptions', data);
+    //   });
+    // },
+    // getType() {
+    //   let url = '/GetType';
+    //   if (this.typeClass !== '全部') {
+    //     url = `/GetType?type=${this.typeClass}`;
+    //   }
+    //   axiosInstance.get(url).then((res) => {
+    //     let data = res.data.Data;
+    //     // [] => {} && 去掉不需要的 tab
+    //     data.forEach((item, index) => {
+    //       this.typeListObj[item.id] = item.title;
+    //       if (item.id === '101') {
+    //         data.splice(index, 1);
+    //       }
+    //     });
+    //     // 根据热度排序
+    //     data = data.sort(this.compare('sort'));
+    //     this.$set(this, 'typeList', data);
+    //   });
+    // },
     hideType(id) {
       if (!this.hideTypeList.includes(id)) {
         this.hideTypeList.push(id);
@@ -192,8 +202,9 @@ export default {
     },
   },
   created() {
-    this.getTypeClass();
-    this.getType();
+    // this.getTypeClass();
+    // this.getType();
+    this.getAllType();
   },
   mounted() {
     const isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
