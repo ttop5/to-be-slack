@@ -101,7 +101,7 @@ export default {
       typeListObj: {},
       typeClass: (localStorage.getItem('slackTypeClass') && localStorage.getItem('slackTypeClass').replace(new RegExp('"', 'g'), '')) || '全部',
       typeClassOptions: [],
-      hideTypeList: JSON.parse(localStorage.getItem('slackHideTabs')) || [],
+      hideTypeList: JSON.parse(localStorage.getItem('slackHideTabs')) || ['101'],
       rightTopMenuList: [
         {
           href: 'https://github.com/tophubs/to-be-slack',
@@ -195,7 +195,7 @@ export default {
       }
     },
     showAllType() {
-      this.$set(this, 'hideTypeList', []);
+      this.$set(this, 'hideTypeList', ['101']);
     },
     clickHandler(id) {
       localStorage.setItem('slackActiveTab', id);
@@ -212,6 +212,7 @@ export default {
       document.getElementById('left-top').classList.remove('absolute-top');
       document.getElementById('left-list').classList.remove('q-mt-xl');
     }
+    this.hideType('101');
   },
 };
 </script>
