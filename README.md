@@ -1,12 +1,12 @@
-# 今日热榜 
+# 今日热榜
 
 今日热榜，摸鱼神器。支持全平台： PC 端移动端 Web、Chrome 插件、PWA 程序（Android、iOS）和桌面端程序（Win、Linux、MacOS）。
 
 线上地址：[https://ttop5.net/to-be-slack](https://ttop5.net/to-be-slack)
 
-最近更新：[https://github.com/tophubs/to-be-slack/releases](https://github.com/tophubs/to-be-slack/releases)
+最近更新：[https://github.com/ttop5/to-be-slack/releases](https://github.com/ttop5/to-be-slack/releases)
 
-使用说明：[https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E](https://github.com/tophubs/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+使用说明：[https://github.com/ttop5/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E](https://github.com/ttop5/to-be-slack/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
 
 
 ## 使用截图
